@@ -12,7 +12,8 @@ sub process_file
 {
     return 0 if (-d $_);
 
-    cp ($File::Find::name, $output_dir) or print ("Failed to copy $File::Find::name to $output_dir\n");
+    cp ($File::Find::name, $output_dir) or print ("Failed to File::Copy cp $File::Find::name to $output_dir\n");
+    `cp $File::Find::name $output_dir` or print ("Failed to cp $File::Find::name to $output_dir\n");;
     return 1;
 }
 
